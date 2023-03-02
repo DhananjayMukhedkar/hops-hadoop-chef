@@ -82,9 +82,9 @@ default['hops']['hdfs']['umask']               = "0007"
 default['hops']['root_url']                    = node['download_url']
 default['hops']['dist_url']                    = node['hops']['root_url'] + "/hops-" + node['hops']['version'] + ".tgz"
 
-default['hops']['fuse']['dist_url']            = node['hops']['root_url'] + "/hops-fuse-mount-" + node['hops']['fuse']['version'] 
+default['hops']['fuse']['dist_url']            = node['hops']['root_url'] + "/hops-fuse-mount-" + node['hops']['fuse']['version']
 default['hops']['fuse']['staging_folder']      = node['hops']['dir'] + "/hops-staging"
-default['hops']['fuse']['mount_point']         = "/hopsfs" 
+default['hops']['fuse']['mount_point']         = "/hopsfs"
 
 
 default['hops']['install_protobuf']            = "false"
@@ -112,14 +112,14 @@ default['hops']['format']                      = "true"
 default['hops']['io_buffer_sz']                = 131072
 default['hops']['container_cleanup_delay_sec'] = 0
 
-default['hops']['clusterj']['max_sessions']               = 1000 
-default['hops']['clusterj']['session_max_reuse_count']    = 5000 
-default['hops']['clusterj']['enable_dto_cache']           = "false" 
-default['hops']['clusterj']['enable_session_cache']       = "false" 
-default['hops']['clusterj']['max_cached_instances']       = 0 
+default['hops']['clusterj']['max_sessions']               = 1000
+default['hops']['clusterj']['session_max_reuse_count']    = 5000
+default['hops']['clusterj']['enable_dto_cache']           = "false"
+default['hops']['clusterj']['enable_session_cache']       = "false"
+default['hops']['clusterj']['max_cached_instances']       = 0
 
 default['hops']['nn']['replace-dn-on-failure']        = "true"
-default['hops']['nn']['replace-dn-on-failure-policy'] = "NEVER" 
+default['hops']['nn']['replace-dn-on-failure-policy'] = "NEVER"
 
 default['hops']['yarn']['scripts']             = %w{ start stop restart }
 default['hops']['yarn']['ps_port']             = 20888
@@ -339,7 +339,7 @@ default['hops']['dfs']['replication']['work_multiplier_per_iteration']  = "2"
 
 default['hops']['dfs']['balance']['max_concurrent_moves']              = "50"
 
-#default no retries for move operation is 10. 
+#default no retries for move operation is 10.
 default['hops']['dfs']['mover']['retry_max_attempts']                  = "20"
 
 default['hops']['dfs']['excluded_hosts']                               = ""
@@ -557,4 +557,6 @@ default['hops']['docker']['cgroup']['cpu']['period']                 = 100000
 #test connector
 default['hops']['docker']['testconnector']['image']['name']    = "testconnector"
 default['hops']['docker']['testconnector']['image']['version'] = "0.1"
-default['hops']['docker']['testconnector']['download_url'] = "#{node['download_url']}/testconnector/#{node['hops']['docker']['testconnector']['image']['version']}/testconnector.tgz"
+#default['hops']['docker']['testconnector']['download_url'] =
+# "#{node['download_url']}/testconnector/#{node['hops']['docker']['testconnector']['image']['version']}/testconnector.tgz"
+default['hops']['docker']['testconnector']['download_url'] = "https://repo.hops.works/dev/dhananjay/testconnector/#{node['hops']['docker']['testconnector']['image']['version']}/testconnector.tar.gz"
